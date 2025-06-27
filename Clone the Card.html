@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amazon card</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        font-family: Arial, sans-serif;
+      }
+      .product-card {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 1px 2px black;
+        max-width: 300px;
+        text-align: left;
+      }
+      .top-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+      }
+      #image {
+        width: 10rem;
+        margin-bottom: 1.5rem;
+      }
+      .name-container span {
+        display: block;
+        font-size: 0.9rem;
+        line-height: 1.2;
+      }
+      .data-card {
+        padding: 1rem;
+      }
+      .rating {
+        display: inline-flex;
+        align-items: center;
+        font-size: 0.9rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+      }
+      .rating .stars {
+        color: gold;
+        margin-right: 0.5rem;
+      }
+      .rating .count {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      .stats {
+        color: grey;
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+      }
+      .price {
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 0.5rem 0;
+      }
+      .price sup {
+        font-size: 1rem;
+        vertical-align: super;
+      }
+      .sub-price {
+        font-size: 0.9rem;
+        color: black;
+        margin-bottom: 1rem;
+      }
+      .btn-align{
+        align-items: left;
+        justify-content: left;
+        text-align: left;
+      }
+      .btn {
+        display: inline-block;
+        width: 100px;
+        margin: 0 auto 1rem;
+        padding: 0.75rem;
+        background: yellow;
+        border: 1px solid #fcd200;
+        border-radius: 40px;
+        font-size: 1rem;
+        font-weight: bold;
+        text-align: center;
+        color: #111;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background: #f7ca00;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="product-card">
+      <div class="top-container">
+        <img
+          id="image"
+          src="https://m.media-amazon.com/images/I/91CnBmI3G8L._AC_UL320_.jpg"
+          alt="Gaming PC"
+        />
+        <div class="name-container">
+          <span
+            >Skytech Gaming PC Desktop – Intel Core i7 12700F 2.1 GHz, NVIDIA RTX
+            4070 Ti, 1TB NVME SSD, 16GB DDR4 RAM 3200, 750W Gold PSU, 360mm AIO,
+            11AC Wi-Fi, Windows 11 Home 64-bit,Black</span
+          >
+        </div>
+      </div>
+      <div class="data-card">
+        <div class="rating">
+          <div class="stars">★★★★☆</div>
+          <div class="count">131</div>
+        </div>
+        <div class="stats">50+ bought in past month</div>
+        <div class="price">
+          $1,979<sup>.59</sup>
+        </div>
+        <div class="sub-price">$159.58 delivery</div>
+        <div class="sub-price">Ships to India</div>
+        <div class="btn-align">
+        <a href="#" class="btn">Add to cart</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
