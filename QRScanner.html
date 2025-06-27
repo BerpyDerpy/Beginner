@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>QR Code Scanner</title>
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        padding: 2rem;
+        margin :0;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      #reader {
+        width: 300px;
+        margin: 0;
+      }
+      #result {
+        margin-top: 1rem;
+        font-weight: bold;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>QR Code Scanner</h1>
+    <div class="container">
+    <div id="reader"></div>
+    <input type="file" id="file-input" accept="image/*" />
+    <a id="result">No result yet</a>
+    </div>
+
+    <script>
+     
+      const resultDiv = document.getElementById("result");
+      const Code = new Html5Qrcode("reader");
+
+      Code.start(
+          { facingMode: "environment" },
+          { fps: 10, qrbox: 250 },
+          (decodedText) => {
+            resultDiv.textContent = `Decoded: ${decodedText}`;
+            Code.stop();
+          },
+        )
+        .catch(console.warn);
+
+      document.getElementById("file-input")
+        .addEventListener("change", async (e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+          try {
+            const decoded = await Code.scanFile(file, true);
+            resultDiv.textContent = `${decoded}`;
+            resultDiv.href = decoded;
+            
+          } catch {
+            resultDiv.textContent = "No QR code found in image.";
+          }
+        });
+    </script>
+  </body>
+</html>
