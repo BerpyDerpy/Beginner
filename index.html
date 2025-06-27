@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>COSC Commit Counter</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      background-color: rgb(255, 254, 254);
+      margin : 0;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    .container {
+      background-color: rgb(220, 253, 249);
+      padding: 2rem;
+      border-radius: 1.5rem;
+      width: 100%;
+      max-width: 48rem;
+      box-sizing: border-box;
+      align-items: center;
+        }
+    #counter {
+      font-size: 4rem;
+      margin: 1rem;
+    }
+
+    #increment {
+        background-color: greenyellow;
+    }
+    #decrement {
+        background-color: rgb(224, 54, 54);
+    }
+    #reset {
+        background-color: darkcyan;
+    }
+    
+    .btn {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      margin: 0.25rem;
+      cursor: pointer;
+    }
+
+    .header {
+        text-align: center;
+    }
+    
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header" >
+    <h1>COSC HackWeek Commits</h1>
+    <div id="counter">0</div>
+    </div>
+    </div>
+  <div>
+    <button id="increment" class="btn">Increment</button>
+    <button id="decrement" class="btn">Decrement</button>
+    <button id="reset"     class="btn">Reset</button>
+  </div>
+
+  <script>
+    let count = 0;
+
+    const counterEl   = document.getElementById('counter');
+    const incBtn      = document.getElementById('increment');
+    const decBtn      = document.getElementById('decrement');
+    const resetBtn    = document.getElementById('reset');
+
+    function render() {
+      counterEl.textContent = count;
+    }
+
+    incBtn.addEventListener('click', () => {
+      count++;
+      render();
+    });
+
+    decBtn.addEventListener('click', () => {
+      if (count > 0) {
+        count--;
+        render();
+      }
+    });
+
+    resetBtn.addEventListener('click', () => {
+      count = 0;
+      render();
+    });
+
+    // Initial render
+    render();
+  </script>
+
+</body>
+</html>
